@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script th:src="@{/js/jquery-1.10.2.min.js}"></script>
+<script th:src="@{/js/jquery.qrcode.min.js}"></script>
+<body>
+
+<div style="text-align: center">
+    <div><h1>收银台</h1></div>
+    <table align="center">
+        <tr>
+            <td>订单编号：</td>
+            <td th:text="${Out_trade_no}"></td>
+            <td>应付金额：</td>
+            <td th:text="${Total_fee}"></td>
+        </tr>
+        <tr>
+            <td>订单类型：</td>
+            <td th:text="${Trade_type}"></td>
+            <td></td>
+            <td ></td>
+        </tr>
+    </table>
+    <div>
+        <img th:src="@{/img/WePayLogo.png}">
+        <table align="center">
+            <tr>
+                <td >
+                    <div style="border: 1px solid black;height: 200px;width: 200px;" id="qrCode" ></div>
+                </td>
+            </tr>
+        </table>
+        <img th:src="@{/img/说明文字.png}">
+    </div>
+</div>
+<input type="hidden" th:value="${Code_url}" id="Code_url"/>
+<script>
+
+    var url=$("#Code_url").val();
+    $('#qrCode').qrcode({
+        render: 'canvas',   //table或者canvas
+        width: 200,
+        height: 200,
+        text: url,
+    });
+
+</script>
+</body>
+</html>

@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div style="border: 1px solid black;height: 200px;width: 300px;text-align: center" >
+    <span>请输入金额：</span>
+    <form method="post" th:action="@{/payment}" id="payForm">
+        <input type="text" name="money"/>
+        <input type="submit" value="提交"/>
+    </form>
+</div>
+</body>
+</html>
